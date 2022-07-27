@@ -1,6 +1,9 @@
+import { map } from 'jquery';
 import { PageList } from './PageList'
 const showMore = document.getElementById('show-more');
 
+const selectblock = document.querySelector('select');
+const selectResult = document.querySelector('#select');
 
 const Home = (argument = '') => {
    const searchBtn = document.getElementById('btnSearch')
@@ -9,12 +12,31 @@ const Home = (argument = '') => {
    const landingPage = document.getElementById('landing-page');
    let landingPageArgument = `&dates=2022-07-26,2030-07-26&ordering=-rating&page_size=${(numberOfPages += 9)}`;
    PageList(landingPageArgument);
-   landingPage.insertAdjacentHTML("afterbegin" , `<h1>Welcome,</h1>
+   landingPage.insertAdjacentHTML("afterbegin", `<h1>Welcome,</h1>
   <p class="page-description">The Hyper Progame is the world’s premier event for computer and video games and related products. At The Hyper Progame, the video game industry’s top talent pack the Los Angeles Convention Center, connecting tens of thousands of the best, brightest, and most innovative in the interactive entertainment industry. For three exciting days, leading-edge companies, groundbreaking new technologies, and never-before-seen products will be showcased. The Hyper Progame connects you with both new and existing partners, industry executives, gamers, and social influencers providing unprecedented exposure to the entire video game industry, all under one roof. This text seems familiar.</p>`);
 
 
    searchBtn.addEventListener('click', () => {
       PageList(searchBar.value)
+   })
+
+   selectblock.addEventListener('click', (event) => {
+      event.preventDefault();
+      // console.log(selectResult.value);
+      let gameBlock = document.querySelectorAll("#container")
+      // console.log(gameBlock);
+      if (selectResult.value != "Any") {
+         gameBlock.forEach(element => {
+            element.style.display = "block";
+            let gameBlockPlatforms = element.querySelector("#platforms");
+            let gameBlockPlatformsHtml = gameBlockPlatforms.innerHTML.includes(selectResult.value);
+            // console.log(gameBlockPlatforms.innerHTML);
+            // console.log(gameBlockPlatformsHtml);
+            if (!gameBlockPlatformsHtml) {
+               element.style.display = "none";
+            }
+         });
+      }
    })
 
 
