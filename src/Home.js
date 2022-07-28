@@ -53,11 +53,6 @@ const Home = (argument = '') => {
    })
 
 
-   // showMore.addEventListener('click', () => {
-   //    let landingPageArgument2 = `&dates=2022-07-01,2023-07-30&ordering=-added&page_size=${(numberOfPages += 9)}`;
-   //    PageList(landingPageArgument2);
-   //    numberOfPages === 27 ? showMore.remove() : showMore
-   // })
 };
 
 export { Home }

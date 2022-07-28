@@ -5,13 +5,17 @@ const searchBar = document.getElementById('search-bar')
 const PageList = (argument = '', numberOfGame = 9) => {
   const landingPage = document.getElementById('landing-page');
   landingPage.innerHTML = "";
-
+  console.log("aaaaaaaaaaaaaa")
+  // console.log(numberOfGame)
+  // let numberOfCard = document.querySelectorAll("#container").length
+  // console.log(numberOfCard)
+  // console.log("aaaaaaaaaaaaaa")
   const showMore = document.getElementById('showMore');
   showMore.style.display = "block";
 
   const preparePage = () => {
     const cleanedArgument = argument.trim().replace(/\s+/g, '-');
-
+    numberOfGame = 9;
     const fetchList = (url, argument) => {
       const finalURL = argument ? `${url}&search=${argument}` : url;
       fetch(finalURL)
@@ -34,20 +38,27 @@ const PageList = (argument = '', numberOfGame = 9) => {
 
     fetchPlatform(`https://api.rawg.io/api/platforms/lists/parents?key=${API_KEY}`);
     fetchList(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=${numberOfGame}`, cleanedArgument);
-    console.log(numberOfGame)
+
+    console.log(searchBar.value);
+    showMore.addEventListener('click', () => {
+      numberOfGame += 9;
+      if (searchBar.value == '') {
+        let url = `https://api.rawg.io/api/games?key=${API_KEY}&page_size=${numberOfGame}`
+        fetchList(url, cleanedArgument);
+      } else {
+        const cleanedSearchBar = searchBar.value.trim().replace(/\s+/g, '-');
+        let url = `https://api.rawg.io/api/games?key=${API_KEY}&page_size=${numberOfGame}`
+        fetchList(url, cleanedSearchBar);
+      }
+      if (numberOfGame === 27) {
+        showMore.style.display = "none";
+        numberOfGame = 9
+      }
+    })
   };
 
 
-  console.log(searchBar.value);
-  showMore.addEventListener('click', () => {
-    numberOfGame += 9;
-    if (searchBar.value == '') {
-      PageList(argument, numberOfGame);
-    } else {
-      PageList(searchBar.value, numberOfGame);
-    }
-    numberOfGame === 27 ? showMore.style.display = "none" : showMore;
-  })
+
 
   const displayList = (platforms) => {
     const selectList = platforms.map((platform) => (`<option>${platform.name}</option>`));
@@ -73,7 +84,7 @@ const PageList = (argument = '', numberOfGame = 9) => {
             </ul>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><a href="#">${article.name}</a></h5>
+            <h5 class="card-title"><a href="#pagedetail/${article.id}">${article.name}</a></h5>
             <div class="iconsCard">
               <p class="card-text">${article.parent_platforms ? article.parent_platforms
         .map((platform) => icons[platform.platform.id])
@@ -99,7 +110,6 @@ const PageList = (argument = '', numberOfGame = 9) => {
      `);
 
     preparePage();
-
   };
 
   render();

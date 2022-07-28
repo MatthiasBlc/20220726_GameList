@@ -37,6 +37,8 @@ $white-color: rgb(255, 255, 255);
   background-color: $black-color;
   border-radius: 15px;
   border: 1px solid #FFF;
+  color: $white-color;
+  padding-left: 5px;
 
 }
 
@@ -61,6 +63,11 @@ $white-color: rgb(255, 255, 255);
   h1 {
     color: $red-color;
     font-weight: 700;
+
+    a{
+      text-decoration: none;
+      color: $red-color;
+    }
   }
 }
 
@@ -121,6 +128,7 @@ $white-color: rgb(255, 255, 255);
     color: $red-color;
     font-size: 20px;
     font-weight: 600;
+    text-align: end;
   }
 
   p {
@@ -128,9 +136,15 @@ $white-color: rgb(255, 255, 255);
     font-weight: thin;
   }
 
+  .title-rating{
+    margin-top: 2em;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
   #websiteBtn {
-    transform: translate(-50%, -50%);
-    position: absolute;
     left: 85%;
     top: 56%;
     background-color: $red-color;
@@ -144,6 +158,8 @@ $white-color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2em;
+    margin-right: 2em;
   }
 
   #websiteIcon {
@@ -152,9 +168,12 @@ $white-color: rgb(255, 255, 255);
     font-size: 2em;
   }
 
-  .gameDetails {
-    padding: 2.5em;
+  .background {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
   }
+
 }
 
 // CARDS CONTAINER & CARDS //
@@ -204,6 +223,7 @@ footer {
     height: 10px;
     width: 10em;
     margin-bottom: 15px;
+    margin-top: 3em;
   }
   p{
     color: $white-color;
@@ -254,5 +274,54 @@ footer {
 
   }
     
+  }
+}
+
+.store {
+
+  a {
+    color: $white-color;
+    padding-bottom: 1px;
+    border-bottom: 2px solid $red-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $white-color;
+      border-bottom: 0;
+    }
+  }
+}
+
+#similar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .card{
+    height: 20em;
+    background-color: transparent;
+    border-radius: 0 !important;
+    border: none !important;
+    color: $white-color !important;
+    overflow: hidden;
+
+    &-title {
+      font-size: 15px;
+
+      a {
+        text-decoration: none;
+        color: $white-color;
+      }
+    }
+  
+    .card-body i {
+      letter-spacing: 15px;
+    }
+  
+    .iconsCard {
+      display: flex;
+      align-items: center;
+    }
   }
 }
