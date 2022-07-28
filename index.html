@@ -12,29 +12,34 @@
 
 <body>
 
-   <nav class="navMenu">
-      <a href="">The Hyper Progame</a>
-      <a href="#pagelist">PageList</a>
-      <a href="#pagelist/borderlands">Borderlands</a>
-      <div class="dot"></div>
-      <div class="search">
-         <div class="search-container">
-            <input type="text" name="search" placeholder="Search..." class="search-input" id="search-bar">
-            <button class="search-btn" id="btnSearch">
-               <i class="fas fa-search"></i>
-            </button>
-         </div>
+   <div class="search">
+      <h1>The HyperPro Game</h1>
+      <div class="search-container">
+         <input type="text" name="search" placeholder="Search..." class="search-input" id="search-bar">
+         <button class="search-btn" id="btnSearch">
+            <i class="fas fa-search"></i>
+         </button>
       </div>
-   </nav>
+   </div>
+
+
+
+   <div id="landing-page"></div>
 
    <select id="select">
       <option>Any</option>
    </select>
 
-   <div id="landing-page"></div>
-
    <section id="pageContent"></section>
-   <button id="show-more">Voir plus</button>
+   <div class="button-container">
+      <button id="showMore">Show more</button>
+   </div>
+
+
+   <footer>
+      <div class="red-div"></div>
+      <p><strong>Matthias B @ 2022 - Fictionnal website for exercice</strong></p>
+   </footer>
 
 
    <script src="./dist/bundle.js"></script>
