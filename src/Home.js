@@ -10,7 +10,7 @@ const Home = (argument = '') => {
    const searchBar = document.getElementById('search-bar')
    let numberOfPages = 0;
    const landingPage = document.getElementById('landing-page');
-   let landingPageArgument = `&dates=2022-07-01,2023-07-30&ordering=-added&page_size=${(numberOfPages += 9)}`;
+   let landingPageArgument = `&dates=2022-07-01,2023-07-30&ordering=-added`;
    PageList(landingPageArgument);
    landingPage.insertAdjacentHTML("afterbegin", 
    `<div class="welcome-container">
@@ -53,11 +53,11 @@ const Home = (argument = '') => {
    })
 
 
-   showMore.addEventListener('click', () => {
-      let landingPageArgument2 = `&dates=2022-07-01,2023-07-30&ordering=-added&page_size=${(numberOfPages += 9)}`;
-      PageList(landingPageArgument2);
-      numberOfPages === 27 ? showMore.remove() : showMore
-   })
+   // showMore.addEventListener('click', () => {
+   //    let landingPageArgument2 = `&dates=2022-07-01,2023-07-30&ordering=-added&page_size=${(numberOfPages += 9)}`;
+   //    PageList(landingPageArgument2);
+   //    numberOfPages === 27 ? showMore.remove() : showMore
+   // })
 };
 
 export { Home }
