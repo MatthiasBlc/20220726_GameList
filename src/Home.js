@@ -20,7 +20,7 @@ const Home = (argument = '') => {
       PageList(searchBar.value)
    })
 
-   selectblock.addEventListener('click', (event) => {
+   selectblock.addEventListener('change', (event) => {
       event.preventDefault();
       // console.log(selectResult.value);
       let gameBlock = document.querySelectorAll("#container")
