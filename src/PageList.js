@@ -32,13 +32,11 @@ const PageList = (argument = '') => {
     fetchList(`https://api.rawg.io/api/games?key=${API_KEY}`, cleanedArgument);
   };
 
-  const displayList = (platforms) => {
-    const selectList = platforms.map((platform) => (
-      `<option>${platform.name}</option>`
-    ))
-    const select = document.getElementById('select')
-    // console.log(select);
-    select.insertAdjacentHTML("beforeEnd", selectList.join("\n"));
+  const displayList = (platforms) => { 
+    const selectList = platforms.map((platform) => ( `<option>${platform.name}</option>`));
+    selectList.unshift('<option>Any</option>');
+    const select = document.getElementById('select');
+    select.innerHTML = selectList.join("\n");
   };
 
 

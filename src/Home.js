@@ -45,7 +45,11 @@ const Home = (argument = '') => {
                element.style.display = "none";
             }
          });
-      }
+      } else {
+         gameBlock.forEach(element => {
+         element.style.display = "block";
+         })
+       }
    })
 
 
